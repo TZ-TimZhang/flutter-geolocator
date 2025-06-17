@@ -170,7 +170,7 @@ class Position {
       floor: positionMap['floor'],
       speed: _toDouble(positionMap['speed']),
       speedAccuracy: _toDouble(positionMap['speed_accuracy']),
-      isMocked: positionMap['is_mocked'] ?? false
+      isMocked: positionMap['is_mocked'] ?? false,
       provider: positionMap['provider'],
     );
   }
