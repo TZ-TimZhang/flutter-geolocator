@@ -19,6 +19,7 @@ class Position {
     required this.speedAccuracy,
     this.floor,
     this.isMocked = false,
+    this.provider,
   });
 
   /// The latitude of this position in degrees normalized to the interval -90.0
@@ -89,6 +90,11 @@ class Position {
   ///
   /// When not available the default value is false.
   final bool isMocked;
+
+  /// The name of the provider that generated this fix.
+  /// Only available on Android
+  /// https://developer.android.com/reference/android/location/Location#getProvider()
+  final String? provider;
 
   @override
   bool operator ==(Object other) {
@@ -164,7 +170,8 @@ class Position {
       floor: positionMap['floor'],
       speed: _toDouble(positionMap['speed']),
       speedAccuracy: _toDouble(positionMap['speed_accuracy']),
-      isMocked: positionMap['is_mocked'] ?? false,
+      isMocked: positionMap['is_mocked'] ?? false
+      provider: positionMap['provider'],
     );
   }
 
@@ -183,6 +190,7 @@ class Position {
         'speed': speed,
         'speed_accuracy': speedAccuracy,
         'is_mocked': isMocked,
+        'provider': provider,
       };
 
   static double _toDouble(dynamic value) {

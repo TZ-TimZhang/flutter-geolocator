@@ -25,6 +25,7 @@ class AndroidPosition extends Position {
     required speedAccuracy,
     super.floor,
     isMocked = false,
+    provider,
   }) : super(
           longitude: longitude,
           latitude: latitude,
@@ -37,6 +38,7 @@ class AndroidPosition extends Position {
           speed: speed,
           speedAccuracy: speedAccuracy,
           isMocked: isMocked,
+          provider: provider,
         );
 
   /// If available it returns the number of GNSS satellites.
@@ -83,6 +85,7 @@ class AndroidPosition extends Position {
       speedAccuracy: position.speedAccuracy,
       floor: position.floor,
       isMocked: position.isMocked,
+      provider: position.provider,
     );
   }
 

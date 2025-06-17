@@ -12,12 +12,15 @@ public class LocationMapper {
       return null;
     }
 
+    System.out.println("location provider " + location.getProvider());
+
     Map<String, Object> position = new HashMap<>();
 
     position.put("latitude", location.getLatitude());
     position.put("longitude", location.getLongitude());
     position.put("timestamp", location.getTime());
     position.put("is_mocked", isMocked(location));
+    position.put("provider", location.getProvider());
 
     if (location.hasAltitude()) position.put("altitude", location.getAltitude());
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && location.hasVerticalAccuracy())

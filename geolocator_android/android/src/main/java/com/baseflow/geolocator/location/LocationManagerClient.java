@@ -9,6 +9,7 @@ import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -82,16 +83,22 @@ class LocationManagerClient implements LocationClient, LocationListenerCompat {
       final List<String> enabledProviders = locationManager.getProviders(true);
 
       if (accuracy == LocationAccuracy.lowest) {
+          Log.d("定位", "provider " + LocationManager.PASSIVE_PROVIDER);
           return LocationManager.PASSIVE_PROVIDER;
-      } else if (enabledProviders.contains(LocationManager.FUSED_PROVIDER) && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-          return LocationManager.FUSED_PROVIDER;
       } else if (enabledProviders.contains(LocationManager.GPS_PROVIDER)) {
+          Log.d("定位", "provider " + LocationManager.GPS_PROVIDER);
           return LocationManager.GPS_PROVIDER;
+      } else if (enabledProviders.contains(LocationManager.FUSED_PROVIDER) && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+          Log.d("定位", "provider " + LocationManager.FUSED_PROVIDER);
+          return LocationManager.FUSED_PROVIDER;
       } else if (enabledProviders.contains(LocationManager.NETWORK_PROVIDER)) {
+          Log.d("定位", "provider " + LocationManager.NETWORK_PROVIDER);
           return LocationManager.NETWORK_PROVIDER;
       } else if (!enabledProviders.isEmpty()){
+          Log.d("定位", "provider " + enabledProviders.get(0));
           return enabledProviders.get(0);
       } else {
+          Log.d("定位", "provider null");
           return null;
       }
   }
