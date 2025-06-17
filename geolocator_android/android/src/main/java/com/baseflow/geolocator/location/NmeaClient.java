@@ -62,33 +62,33 @@ public class NmeaClient {
                     if (status.usedInFix(i)) {
                         ++gnss_satellites_used_in_fix;
                     }
-                    int constellationType = status.getConstellationType(i);
-                    switch (constellationType) {
-                        case GnssStatus.CONSTELLATION_GPS:
-                            Log.d("搜星", "GPS卫星");
-                            break;
-                        case GnssStatus.CONSTELLATION_SBAS:
-                            Log.d("搜星", "SBAS卫星");
-                            break;
-                        case GnssStatus.CONSTELLATION_GLONASS:
-                            Log.d("搜星", "Glonass卫星");
-                            break;
-                        case GnssStatus.CONSTELLATION_QZSS:
-                            Log.d("搜星", "QZSS卫星");
-                            break;
-                        case GnssStatus.CONSTELLATION_BEIDOU:
-                            Log.d("搜星", "Beidou卫星");
-                            break;
-                        case GnssStatus.CONSTELLATION_GALILEO:
-                            Log.d("搜星", "Galileo卫星");
-                            break;
-                        case GnssStatus.CONSTELLATION_IRNSS:
-                            Log.d("搜星", "IRNSS卫星");
-                            break;
-                        default:
-                            Log.d("搜星", "未知卫星");
-                            break;
-                    }
+//                    int constellationType = status.getConstellationType(i);
+//                    switch (constellationType) {
+//                        case GnssStatus.CONSTELLATION_GPS:
+//                            Log.d("搜星", "GPS卫星");
+//                            break;
+//                        case GnssStatus.CONSTELLATION_SBAS:
+//                            Log.d("搜星", "SBAS卫星");
+//                            break;
+//                        case GnssStatus.CONSTELLATION_GLONASS:
+//                            Log.d("搜星", "Glonass卫星");
+//                            break;
+//                        case GnssStatus.CONSTELLATION_QZSS:
+//                            Log.d("搜星", "QZSS卫星");
+//                            break;
+//                        case GnssStatus.CONSTELLATION_BEIDOU:
+//                            Log.d("搜星", "Beidou卫星");
+//                            break;
+//                        case GnssStatus.CONSTELLATION_GALILEO:
+//                            Log.d("搜星", "Galileo卫星");
+//                            break;
+//                        case GnssStatus.CONSTELLATION_IRNSS:
+//                            Log.d("搜星", "IRNSS卫星");
+//                            break;
+//                        default:
+//                            Log.d("搜星", "未知卫星");
+//                            break;
+//                    }
                 }
             }
         };
